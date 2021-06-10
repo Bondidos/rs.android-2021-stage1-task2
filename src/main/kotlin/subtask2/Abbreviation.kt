@@ -1,9 +1,18 @@
 package subtask2
 
+import java.lang.StringBuilder
+
 class Abbreviation {
 
-    // TODO: Complete the following function
     fun abbreviationFromA(a: String, b: String): String {
-        throw NotImplementedError("Not implemented")
+        val string = StringBuilder(a.toUpperCase())
+        val buffer = StringBuilder ( "")
+        for (i in b.indices){
+            if (string.contains(b[i])) {
+                buffer.append(b[i])
+                string.delete(0,string.indexOf(b[i]).inc())
+            }
+        }
+        return if (buffer.toString() == b) "YES" else "NO"
     }
 }
